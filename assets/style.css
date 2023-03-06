@@ -52,6 +52,8 @@ header {
 
 .card-body {
     min-height: 100px;
+    display:block;
+    float: left;
   }
   
   .card-footer {
@@ -83,10 +85,7 @@ header {
     display: block;
   }
 
-  .time {
 
-  }
-  
   .btn {
     border: none;
     background-color: hsl(360, 91%, 36%);
@@ -119,9 +118,6 @@ header {
       padding: 10px 15px;
     }
   
-    #password {
-      font-size: 1rem;
-    }
   }
   
   @media (max-width: 500px) {
