@@ -115,6 +115,7 @@ function startQuiz() {
 function endQuiz() {
   
   //removes timer from screen
+  clearInterval(timerInterval)
   timeEl.textContent = "";
 
   console.log("You have gotten", correctCounter, "right and", incorrectCounter, "wrong!");
