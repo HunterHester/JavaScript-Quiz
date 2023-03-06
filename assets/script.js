@@ -44,6 +44,7 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
 
+        //sends user to score screen if timer hits or goes below 0
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             endQuiz()
@@ -62,7 +63,7 @@ function startQuiz() {
     let questionNum = 0;
     displayQuestion(questionNum);
   
-
+    //function to display questions from questions variable
     function displayQuestion(index) {
       cardBodyEl.innerHTML = "";
       
@@ -86,10 +87,6 @@ function startQuiz() {
           
           //determines if answer is correct
           if (selectedAnswer === questions[index].correctAnswer) {
-            // Display a success message and move to the next question
-            const successEl = document.createElement("p");
-            successEl.textContent = "Correct!";
-            cardBodyEl.appendChild(successEl);
             correctCounter++;
             
             questionNum++;
@@ -99,11 +96,6 @@ function startQuiz() {
               endQuiz();
             }
           } else {
-            // Display an error message and subtract time
-            const errorEl = document.createElement("p");
-            errorEl.textContent = "Incorrect!";
-            cardBodyEl.appendChild(errorEl);
-            
             secondsLeft -= 10;
             incorrectCounter++;
 
@@ -119,14 +111,18 @@ function startQuiz() {
     }
   }
 
-
+//post quiz function for scoreboard
 function endQuiz() {
-  clearInterval(timerInterval);
+  
+  //removes timer from screen
   timeEl.textContent = "";
 
   console.log("You have gotten", correctCounter, "right and", incorrectCounter, "wrong!");
+  
   cardBodyEl.innerHTML = "";
   headerEl.innerHTML = "";
+
+
 
   const resultsHeader = document.createElement("h2");
   resultsHeader.textContent = "You have completed the quiz!"
@@ -136,11 +132,13 @@ function endQuiz() {
   resultsEl.textContent = "Please enter your initials to add to the scoreboard:";
   cardBodyEl.appendChild(resultsEl);
 
+  //input requesting user's initials with a maxlength of 3
   const initialsInput = document.createElement("input");
   initialsInput.setAttribute("type", "text");
   initialsInput.setAttribute("maxlength", "3");
   cardBodyEl.appendChild(initialsInput);
 
+//adds submit button to confirm initials
   const submitBtn = document.createElement("button")
   submitBtn.textContent = "Submit";
   cardBodyEl.appendChild(submitBtn);
@@ -148,6 +146,7 @@ function endQuiz() {
   submitBtn.addEventListener("click", function(event){
     event.preventDefault();
 
+    //adds initials and score to localstorage
     const scoreboard = JSON.parse(localStorage.getItem("scoreboard")) || [];
     scoreboard.push({
       Initials: initialsInput.value.trim().toUpperCase(),
@@ -158,6 +157,7 @@ function endQuiz() {
 
   });
 
+  //displays scoreboard from localstorage
   function renderMessage() {
     const scoreboard = JSON.parse(localStorage.getItem("scoreboard"));
 
@@ -180,6 +180,7 @@ function endQuiz() {
     }
   }
 
+  //re-enables previously disabled start button to play again
   confirmButton.disabled = false;
 }
 
