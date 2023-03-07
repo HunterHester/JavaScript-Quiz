@@ -1,25 +1,47 @@
-# JavaScript-Quiz
+# JavaScript Quiz
 
-## User Story
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
 
-## Acceptance Criteria
+The JavaScript Quiz was built to test the user's knowledge of JavaScript and compare it against their previous local scores. This quiz was built for indiviuals who are just starting out with JavaScript and wanted to quickly test their foundational knowledge within the 4 provided questions.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+
+![JavaScript Quiz layout containing 'Start' button](./assets/Images/QuizImage.png)
+
+## Table of Contents
+
+
+* Installation
+* Usage
+* Credits
+
+
+## Installation
+
+
+
+To install this application, please visit https://github.com/HunterHester/JavaScript-Quiz , download the repository, and open the HTML file in your internet browser.
+
+
+Alternatively, you can visit https://hunterhester.github.io/JavaScript-Quiz/ to see the live site hosted using GitHub Pages.
+
+
+
+## Usage
+
+
+
+To use this application, follow these steps:
+
+
+1. Visit the link provided above to access the live site (or from the HTML file provided with the github repo)
+2. Click 'Start' to begin Quiz. You will have 90 seconds to complete the quiz and you will lose 10 seconds on every incorrect answer
+3. After the completion of the quiz, you have the ability to enter your initials that can then be stored locally so you can compare against your friends or previous attempts
+
+
+## Credits
+
+
+
+This project was written in CSS, HTML, and vanilla Javascript
+
+Site is hosted by GitHub's Pages feature

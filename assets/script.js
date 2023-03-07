@@ -59,6 +59,12 @@ function startQuiz() {
     confirmButton.disabled = true;
     setTime();
     
+    //retains Test your JavaScript skills after trying the quiz again
+    headerEl.innerHTML = "";
+    const quizHeader = document.createElement("h2");
+    quizHeader.textContent = "Test your JavaScript skills!";
+    headerEl.appendChild(quizHeader);
+
     //initalizing questionNum
     let questionNum = 0;
     displayQuestion(questionNum);
@@ -115,8 +121,10 @@ function startQuiz() {
 function endQuiz() {
   
   //removes timer from screen
-  clearInterval(timerInterval)
+  clearInterval(timerInterval);
   timeEl.textContent = "";
+  secondsLeft = 0;
+  console.log(timerInterval);
 
   console.log("You have gotten", correctCounter, "right and", incorrectCounter, "wrong!");
   
